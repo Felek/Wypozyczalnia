@@ -1,1 +1,18 @@
-Nie wahajcie siê edytowaæ, jeœli trzeba gdzieœ jakiejœ instrukcji :)
+Podziaï¿½ obowiï¿½zkï¿½w wg okienek:
+
+Hania - pracownicy
+Paweï¿½ - statki
+Tomek - czï¿½ï¿½ci
+Krzysiek - rezerwacje
+Krystian - lista zamï¿½wieï¿½
+
+Wzorujcie siï¿½ na rozwiï¿½zaniu Hani.
+
+Narzï¿½dzia:
+Microsoft Sql Server Management Studio 2012 - na dobrychprogramach jest, na microsofcie coï¿½ nie dziaï¿½a
+Visual Studio 2013 Express
+
+ï¿½eby utworzyï¿½ bazï¿½ danych uruchamiacie zapytania z folderu queries w odpowiedniej kolejnoï¿½ci, na poczï¿½tku oczywiï¿½cie ddl.sql, a potem reszta.
+
+Commit dla Hani
+Drugi commit dla Hani

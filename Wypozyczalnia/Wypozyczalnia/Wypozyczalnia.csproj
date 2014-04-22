@@ -34,9 +34,14 @@
   <PropertyGroup>
     <ApplicationIcon>death star.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseSettingsController.cs" />
+    <Compile Include="Database\DatabaseSettings.cs" />
+    <Compile Include="Database\Extensions.cs" />
+    <Compile Include="Database\QueriesClient.cs" />
+    <Compile Include="Database\QueriesEmployee.cs" />
+    <Compile Include="Database\QueriesWarehouse.cs" />
+    <Compile Include="DataIncorrect.cs" />
+    <Compile Include="FormController\EmployeeFormController.cs" />
+    <Compile Include="View\DatabaseSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DatabaseSettingsForm.Designer.cs">
+      <DependentUpon>DatabaseSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginController.cs" />
     <Compile Include="View\BaseForm.cs">
       <SubType>Form</SubType>
@@ -60,7 +79,6 @@
     <Compile Include="View\BaseView.Designer.cs">
       <DependentUpon>BaseView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Client.cs" />
     <Compile Include="View\ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,13 +92,19 @@
       <DependentUpon>ClientsView.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="View\EmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\EmployeesView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\EmployeesView.Designer.cs">
       <DependentUpon>EmployeesView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClientFormController.cs" />
+    <Compile Include="FormController\ClientFormController.cs" />
     <Compile Include="IFormController.cs" />
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -88,9 +112,22 @@
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\WarehouseView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WarehouseView.Designer.cs">
+      <DependentUpon>WarehouseView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WypozyczalniaDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WypozyczalniaDataClasses.dbml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\DatabaseSettingsForm.resx">
+      <DependentUpon>DatabaseSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ClientsView.resx">
       <DependentUpon>ClientsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EmployeesView.resx">
       <DependentUpon>EmployeesView.cs</DependentUpon>
@@ -119,6 +159,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\WarehouseView.resx">
+      <DependentUpon>WarehouseView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,12 +171,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="WypozyczalniaDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>WypozyczalniaDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WypozyczalniaDataClasses.dbml.layout">
+      <DependentUpon>WypozyczalniaDataClasses.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="death star.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UserManager\UserManager.csproj">
+      <Project>{c33ef745-905f-425b-8ab5-3d82bd5fb8b0}</Project>
+      <Name>UserManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

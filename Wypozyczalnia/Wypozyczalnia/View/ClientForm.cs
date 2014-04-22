@@ -8,56 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Wypozyczalnia
+namespace Wypozyczalnia.View
 {
-    namespace View
+    public partial class ClientForm : BaseForm
     {
-        public partial class ClientForm : BaseForm
+        public ClientForm()
         {
-            public ClientForm()
-            {
-                InitializeComponent();
-            }
-
-            public string TextBox1
-            {
-                get { return textBox1.Text; }
-                set { textBox1.Text = value; }
-            }
-
-            public string TextBox2
-            {
-                get { return textBox2.Text; }
-                set { textBox2.Text = value; }
-            }
-
-            public string TextBox3
-            {
-                get { return textBox3.Text; }
-                set { textBox3.Text = value; }
-            }
-
-            public string TextBox4
-            {
-                get { return textBox4.Text; }
-                set { textBox4.Text = value; }
-            }
-
-            public string TextBox5
-            {
-                get { return textBox5.Text; }
-                set { textBox5.Text = value; }
-            }
-
-            private void actionCancel(object sender, EventArgs e)
-            {
-                this.Dispose();
-            }
-
-            private void actionCorfirm(object sender, EventArgs e)
-            {
-                controller.Add();
-            }
+            InitializeComponent();
         }
+
+        public ClientForm(Klient client)
+        {
+            InitializeComponent();
+
+            textBox1.Text = "" + client.Klient_ID;
+            textBox2.Text = client.Imię;
+            textBox3.Text = client.Nazwisko;
+            textBox4.Text = client.Nr_dowodu;
+        }
+
+        public string TextBox3
+        {
+            get { return textBox3.Text; }
+            set { textBox3.Text = value; }
+        }
+
+        public string TextBox4
+        {
+            get { return textBox4.Text; }
+            set { textBox4.Text = value; }
+        }
+
+        public override void DisableAllFields()
+        {
+            textBox1.ReadOnly = true;
+            textBox2.ReadOnly = true;
+            textBox3.ReadOnly = true;
+            textBox4.ReadOnly = true;
+        }
+
     }
 }
+

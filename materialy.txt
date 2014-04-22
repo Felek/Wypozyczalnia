@@ -1,0 +1,27 @@
+SQL Query: (zastapione przez LINQ)
+http://www.codeproject.com/Articles/4416/Beginners-guide-to-accessing-SQL-Server-through-C
+
+DataTable:
+http://www.dotnetperls.com/datatable
+bedzie trzeba tylko ustawic sszerokosci kolumn, ewentualnie nazwy
+
+Dziedziczenie:
+	public partial class EmployeesView : BaseView { .. }
+	
+Tooltip:
+Drag a tooltip control from the toolbox onto your form. You don't really need to give it any properties other than a name. Then, in the properties of the control you wish to have a tooltip on, look for a new property with the name of the tooltip control you just added. It will by default give you a tooltip when the cursor hovers the control.
+	
+DialogResult
+1. w glownym kontrolerze jest juz funkcja, ktora odswieza tabelke, jesli DR == OK
+2. formularz zamyka sie w razie bledu, chyba ze po wykryciu bledu (np. wyjatek) ustawimy DR = None
+lub na poczatku wykonywania funkcji
+http://support.microsoft.com/kb/816145
+
+LINQ
+http://www.dreamincode.net/forums/topic/224102-linq-to-sql-primer/
+http://www.codeproject.com/Articles/26657/Simple-LINQ-to-SQL-in-C
+http://csharp-guide.blogspot.com/2012/05/linq-to-sql-select-specific-columns.html
+http://msdn.microsoft.com/en-us/library/bb882642.aspx 	- chyba wszystkie uzyteczne komendy w 1 miejscu
+
+
+jak co pytac skad sie co wzielo ;p

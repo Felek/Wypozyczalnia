@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Wypozyczalnia.Database;
 using Wypozyczalnia.View;
 
 namespace Wypozyczalnia
@@ -20,17 +21,15 @@ namespace Wypozyczalnia
 
         public void Login()
         {
-            if ((form.UserName == "login") && (form.Password == "haslo"))
-            {
-                BaseView initForm = new ClientsView();
-                Controller controller = new Controller(initForm);
-                initForm.Show();
-                form.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Niepoprawna nazwa użytkownika lub hasło", "Błąd");
-            }
+            WypozyczalniaDataClassesDataContext dbContext = new WypozyczalniaDataClassesDataContext(
+                //"Data Source=HANIA-LAPTOP\\SQLEXPRESS;Initial Catalog=Test2;User ID=sa;Password=Admin1");
+                DatabaseSettings.CreateConnectionString(form.UserName, form.Password));
+            DatabaseSettings.Save(form.UserName);
+
+            BaseView initForm = new ClientsView();
+            Controller controller = new Controller(dbContext, initForm);
+            initForm.Show();
+            form.Hide();
 
         }
     }
